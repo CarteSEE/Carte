@@ -8,13 +8,12 @@
   <!-- Feuille de style Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
-    /* Styles de base pour bureau - textes divisés par 2 */
+    /* Styles de base pour PC (inchangés) */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       font-family: sans-serif;
-      font-size: 8px; /* Au lieu de 16px */
     }
     #container {
       display: flex;
@@ -35,7 +34,6 @@
     }
     h1 {
       margin-top: 0;
-      font-size: 0.75rem; /* Au lieu de 1.5rem */
     }
     .student-item {
       margin-bottom: 8px;
@@ -43,7 +41,7 @@
       padding: 6px;
       border: 1px solid #eee;
       border-radius: 4px;
-      font-size: 0.5rem; /* Au lieu de 1rem */
+      font-size: 1rem;
     }
     .student-item:hover {
       background-color: #f0f0f0;
@@ -57,11 +55,12 @@
     }
     
     /* Adaptation pour écrans mobiles :
-       La barre latérale occupe 20% de la largeur (à gauche) et la carte 80%.
-       Toutes les tailles de texte ont été divisées par 2 par rapport aux valeurs précédentes. */
+       - La barre latérale occupe 20% de la largeur (à gauche)
+       - La carte occupe 80% de la largeur
+       - La taille de la police est augmentée de manière intermédiaire */
     @media (max-width: 768px) {
       #container {
-        flex-direction: row;
+        flex-direction: row; /* Conserver l'affichage en ligne */
       }
       #sidebar {
         width: 20%;
@@ -70,25 +69,27 @@
         border-right: 1px solid #ccc;
         border-bottom: none;
         padding: 10px;
-        font-size: 0.5rem; /* Au lieu de 1rem ou 1.2rem */
+        font-size: 1.5rem; /* Augmentation intermédiaire du texte */
       }
       #map {
         width: 80%;
         height: 100%;
       }
       h1 {
-        font-size: 0.75rem;
+        font-size: 1.8rem;
       }
       .student-item {
-        font-size: 0.5rem;
-        padding: 6px;
+        font-size: 1.5rem;
+        padding: 8px;
       }
+      /* Optionnel : si vous souhaitez augmenter légèrement la taille de base */
       html, body {
-        font-size: 8px !important;
+        font-size: 20px !important;
       }
     }
   </style>
 </head>
+
 <body>
   <div id="container">
     <!-- SIDEBAR -->
@@ -104,7 +105,7 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
     // === 1) Données des élèves ===
-    // Les informations des élèves restent inchangées, seuls les chemins d'image sont mis à jour pour utiliser "Photos"
+    // Les informations des élèves avec coordonnées, image et description (texte formel)
     const students = [
       {
         name: "Axel",
@@ -162,20 +163,23 @@
         details: "Mort renversé par une Dacia Sandero 2015 le 16 mai 2025."
       }
     ];
-    
+
     // === 2) Initialisation de la carte Leaflet ===
     const map = L.map('map').setView([20, 0], 2);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors'
     }).addTo(map);
-    
+
     // Stockage des marqueurs
     const markers = [];
+
+    // === 3) Création des marqueurs + construction de la sidebar ===
     const studentListDiv = document.getElementById('student-list');
-    
+
     students.forEach((student, index) => {
       const isSpecialAnimation = student.name === 'Gabriel';
-      const marker = L.marker(student.coords).addTo(map).bindPopup(`
+      const marker = L.marker(student.coords).addTo(map)
+        .bindPopup(`
           <b>${student.name}</b><br/>
           <img 
             src="${student.photo}" 
@@ -186,7 +190,7 @@
           ${student.details}
         `);
       markers.push(marker);
-      
+
       const studentItem = document.createElement('div');
       studentItem.className = 'student-item';
       studentItem.innerHTML = `<strong>${student.name}</strong>`;
