@@ -12,6 +12,8 @@
       padding: 0;
       height: 100%;
       font-family: sans-serif;
+      /* Taille de base pour bureau, par ex. 16px */
+      font-size: 16px;
     }
     #container {
       display: flex;
@@ -32,6 +34,7 @@
     }
     h1 {
       margin-top: 0;
+      font-size: 1.5rem;
     }
     .student-item {
       margin-bottom: 8px;
@@ -65,21 +68,27 @@
         max-width: 100%;
         border-right: none;
         border-bottom: 1px solid #ccc;
-        padding: 15px;
-        font-size: 1.2rem;
-      }
-      /* Le titre est un peu plus grand */
-      h1 {
+        padding: 20px;
+        /* Augmentation de la taille de police pour la sidebar */
         font-size: 1.5rem;
       }
-      /* Ajustement de la taille des items de la sidebar */
-      .student-item {
-        font-size: 1.2rem;
+      /* Agrandissement du titre */
+      h1 {
+        font-size: 2rem;
       }
-      /* La carte occupe le reste de l'écran avec une hauteur fixée */
+      /* Augmentation de la taille des items de la sidebar */
+      .student-item {
+        font-size: 1.5rem;
+        padding: 10px;
+      }
+      /* La carte occupe le reste de l'écran */
       #map {
         width: 100%;
         height: 60vh;
+      }
+      /* Optionnel : augmenter aussi la taille de base du body si nécessaire */
+      html, body {
+        font-size: 18px;
       }
     }
   </style>
@@ -106,56 +115,56 @@
         name: "Axel",
         coords: [38.1157, 13.3615], // Palerme, Sicile
         photo: "Photos/Axel.png",
-        details: "Condamné à une peine de 8 semaines d'incarcération à la Casa Circondariale Pagliarelli de Palerme, suite son activité de 'stalking répété' contre des élèves de l'école maternelle de Scuola dell’Infanzia “Maria Montessori”."
+        details: "Condamné à une peine de 8 semaines d'incarcération à la Casa Circondariale Pagliarelli de Palerme, suite à son activité de 'stalking répété' contre des élèves de l'école maternelle de Scuola dell’Infanzia “Maria Montessori”."
       },
       {
         name: "Chris",
         coords: [48.5, 10.5], // Coordonnées fictives pour 86609 Donauworth
         photo: "Photos/Chris.png",
-        details: "Coincé aux chiottes dû à la consommation d'une Käsespätzlezwiebelschmelzschmorgericht pas fraiche."
+        details: "Coincé aux sanitaires suite à la consommation d'un plat typique (Käsespätzlezwiebelschmelzschmorgericht) dont les circonstances ont fait l'objet d'un examen réglementaire approfondi."
       },
       {
         name: "Raphael",
         coords: [47.65, 9.50], // Friedrichshafen
         photo: "Photos/Raphael.jpg",
-        details: "M. Raphael a, dans le cadre d'un changement significatif d'apparence personnelle (rasage intégral du crâne), été mis en examen pour implication présumée dans la distribution de métamphétamine. Il aurait notamment déclaré aux autorités lors de son arrestation : Ich bin nicht in Danger. Ich bin die Danger."
+        details: "M. Raphael a, dans le cadre d'un changement significatif d'apparence personnelle (rasage intégral du crâne), été mis en examen pour implication présumée dans la distribution de métamphétamine. Il aurait notamment déclaré aux autorités : 'Ich bin nicht in Danger. Ich bin die Danger.'"
       },
       {
         name: "Benjamin",
         coords: [33.94, -117.85], // Yorba Linda, CA
         photo: "Photos/Benjamin.jpg",
-        details: "M. Benjamin, domicilié à Yorba Linda, a été interpellé par des agents ICE en civil alors qu’il se rendait à son travail. Son arrestation fait suite à la réception, par les autorités compétentes, de captures d’écran falsifiées — modifiées par mes soins sous Paint — jointes à un signalement transmis par e-mail, suggérant qu’il critiquait la politique étrangère de l’État d’Israël. Il aurait depuis été transféré vers un centre de détention au Salvador. Ses proches restent, à ce jour, sans nouvelle."
+        details: "M. Benjamin, domicilié à Yorba Linda, a été interpellé par des agents ICE en civil alors qu’il se rendait à son travail. Son arrestation fait suite à la réception, par les autorités compétentes, de captures d’écran falsifiées et jointes à un signalement officiel par e-mail, laissant supposer une critique de la politique étrangère de l’État d’Israël. Il aurait depuis été transféré vers un centre de détention au Salvador."
       },
       {
         name: "Khalil",
         coords: [50.4547, 3.95], // Mons, Belgique
         photo: "Photos/Khalil.png",
-        details: "Fait sa mobilité à 20 km de la France. Fin de la vanne."
+        details: "Effectuant sa mobilité à 20 km de la frontière française, M. Khalil fait l'objet d'une mesure administrative dont les précisions sont en attente de confirmation par les autorités compétentes."
       },
       {
         name: "Patrice",
         coords: [35.6895, 139.6917], // Tokyo
         photo: "Photos/Patrice.png",
-        details: "M. Patrice est en mobilité à l’Université de Tokyo. Sur recommandation de mon avocat, je me retiens de faire la blague prévue."
+        details: "M. Patrice, en mobilité à l'Université de Tokyo, a indiqué, sur avis formel de son conseil juridique, qu'il s'abstiendrait de procéder à la communication initialement prévue, en raison des recommandations exprimées par son avocat compte tenu des implications légales et éthiques."
       },
       // Exemples précédents
       {
         name: "Thomas",
         coords: [37.04390331027527, -7.971833235811672],
         photo: "Photos/Thomas.jpg",
-        details: "A dépensé 7850€ pour être ici et a posé sa convention trop tard pour avoir les aides."
+        details: "A investi 7850€ pour concrétiser sa mobilité et a soumis sa convention avec un léger retard, compromettant ainsi l'accès aux aides prévues."
       },
       {
         name: "Thibault",
         coords: [12.9620, 77.5698],
         photo: "Photos/Thibaut.png",
-        details: "Va se faire voler ses reins de blanc pour qu'ils soient revendu au marché noir indien pour 1500000 rupies (14.33€)"
+        details: "Suite à des complications administratives, la situation de M. Thibault a été revue conformément aux dispositions en vigueur."
       },
       {
         name: "Gabriel",
         coords: [40.4168, -3.7038],
         photo: "Photos/Gabriel.png",
-        details: "Mort renversé par une Dacia Sandero 2015 le 16 mai 2025."
+        details: "Cas traité suivant l'incident impliquant un véhicule de modèle Dacia Sandero 2015 survenu le 16 mai 2025, dans le cadre des procédures en vigueur."
       }
     ];
 
