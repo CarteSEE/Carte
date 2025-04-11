@@ -59,33 +59,41 @@
        - La carte occupe 80% de la largeur
        - La taille de la police est augmentée de manière intermédiaire */
     @media (max-width: 768px) {
-      #container {
-        flex-direction: row; /* Conserver l'affichage en ligne */
-      }
-      #sidebar {
-        width: 20%;
-        min-width: 20%;
-        max-width: 20%;
-        border-right: 1px solid #ccc;
-        border-bottom: none;
-        padding: 10px;
-        font-size: 1.7rem; /* Augmentation intermédiaire du texte */
-      }
-      #map {
-        width: 80%;
-        height: 100%;
-      }
-      h1 {
-        font-size: 1.8rem;
-      }
-      .student-item {
-        font-size: 2.3rem;
-        padding: 8px;
-      }
-      /* Optionnel : si vous souhaitez augmenter légèrement la taille de base */
-      html, body {
-        font-size: 14px;
-      }
+  #container {
+    flex-direction: row;
+  }
+
+  #sidebar {
+    width: 20%;
+    min-width: 20%;
+    max-width: 20%;
+    border-right: 1px solid #ccc;
+    border-bottom: none;
+    padding: 10px;
+    font-size: 1rem; /* Taille normale dans la sidebar */
+  }
+
+  #map {
+    width: 80%;
+    height: 100%;
+  }
+
+  h1 {
+    font-size: 1.2rem; /* Titre ajusté pour mobile */
+  }
+
+  .student-item {
+    font-size: 1rem; /* Taille du prénom dans la liste */
+    padding: 6px;
+  }
+
+  .leaflet-popup-content {
+    font-size: 1.1rem; /* Texte dans la popup */
+  }
+
+  html, body {
+    font-size: 16px; /* Pas de !important */
+  }
     }
   </style>
 </head>
