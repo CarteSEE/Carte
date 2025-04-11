@@ -64,37 +64,43 @@
   }
 
   #sidebar {
-    width: 20%;
-    min-width: 20%;
-    max-width: 20%;
+    width: 25%;
+    min-width: 25%;
+    max-width: 25%;
     border-right: 1px solid #ccc;
     border-bottom: none;
     padding: 10px;
-    font-size: 1rem; /* Taille normale dans la sidebar */
+    font-size: 1rem;
   }
 
   #map {
-    width: 80%;
+    width: 75%;
     height: 100%;
   }
 
   h1 {
-    font-size: 1.2rem; /* Titre ajusté pour mobile */
+    font-size: 1.2rem;
   }
 
   .student-item {
-    font-size: 1rem; /* Taille du prénom dans la liste */
+    font-size: 1rem;
     padding: 6px;
   }
 
   .leaflet-popup-content {
-    font-size: 1.1rem; /* Texte dans la popup */
+    font-size: 0.9rem; /* Réduction de ~10% du texte */
+  }
+
+  /* Réduction de la taille des images dans la popup */
+  .leaflet-popup-content img {
+    width: 120px !important; /* ~20% de moins que les 150px de base */
   }
 
   html, body {
-    font-size: 16px; /* Pas de !important */
+    font-size: 16px;
   }
-    }
+}
+
   </style>
 </head>
 
