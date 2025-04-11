@@ -59,7 +59,8 @@
     /* Adaptation pour écrans mobiles :
        - La barre latérale occupe 20% de la largeur (à gauche)
        - La carte occupe 80% de la largeur
-       - La taille de la police est doublée */
+       - La taille de la police est réduite pour revenir à des valeurs plus « confortables »
+    */
     @media (max-width: 768px) {
       #container {
         flex-direction: row; /* Conserver la disposition en rangée */
@@ -70,23 +71,23 @@
         max-width: 20%;
         border-right: 1px solid #ccc;
         border-bottom: none;
-        padding: 15px;
-        font-size: 2rem; /* Texte doublé */
+        padding: 10px;  /* padding réduit */
+        font-size: 1rem; /* Taille de texte plus légère */
       }
-      /* La carte occupe le reste de la largeur */
+      /* La carte occupe 80% de la largeur */
       #map {
         width: 80%;
         height: 100%;
       }
       h1 {
-        font-size: 2.5rem; /* Titre agrandi */
+        font-size: 1.8rem;
       }
       .student-item {
-        font-size: 2rem;
-        padding: 10px;
+        font-size: 1rem;
+        padding: 6px;
       }
       html, body {
-        font-size: 32px; /* Double de 16px */
+        font-size: 16px !important;
       }
     }
   </style>
