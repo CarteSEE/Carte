@@ -8,13 +8,13 @@
   <!-- Feuille de style Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
-    /* Styles de base pour bureau */
+    /* Styles de base pour bureau - textes divisés par 2 */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       font-family: sans-serif;
-      font-size: 16px;
+      font-size: 8px; /* Au lieu de 16px */
     }
     #container {
       display: flex;
@@ -35,7 +35,7 @@
     }
     h1 {
       margin-top: 0;
-      font-size: 1.5rem;
+      font-size: 0.75rem; /* Au lieu de 1.5rem */
     }
     .student-item {
       margin-bottom: 8px;
@@ -43,7 +43,7 @@
       padding: 6px;
       border: 1px solid #eee;
       border-radius: 4px;
-      font-size: 1rem;
+      font-size: 0.5rem; /* Au lieu de 1rem */
     }
     .student-item:hover {
       background-color: #f0f0f0;
@@ -57,13 +57,11 @@
     }
     
     /* Adaptation pour écrans mobiles :
-       - La barre latérale occupe 20% de la largeur (à gauche)
-       - La carte occupe 80% de la largeur
-       - La taille de la police est réduite pour revenir à des valeurs plus « confortables »
-    */
+       La barre latérale occupe 20% de la largeur (à gauche) et la carte 80%.
+       Toutes les tailles de texte ont été divisées par 2 par rapport aux valeurs précédentes. */
     @media (max-width: 768px) {
       #container {
-        flex-direction: row; /* Conserver la disposition en rangée */
+        flex-direction: row;
       }
       #sidebar {
         width: 20%;
@@ -71,28 +69,26 @@
         max-width: 20%;
         border-right: 1px solid #ccc;
         border-bottom: none;
-        padding: 10px;  /* padding réduit */
-        font-size: 1rem; /* Taille de texte plus légère */
+        padding: 10px;
+        font-size: 0.5rem; /* Au lieu de 1rem ou 1.2rem */
       }
-      /* La carte occupe 80% de la largeur */
       #map {
         width: 80%;
         height: 100%;
       }
       h1 {
-        font-size: 1.8rem;
+        font-size: 0.75rem;
       }
       .student-item {
-        font-size: 1rem;
+        font-size: 0.5rem;
         padding: 6px;
       }
       html, body {
-        font-size: 16px !important;
+        font-size: 8px !important;
       }
     }
   </style>
 </head>
-
 <body>
   <div id="container">
     <!-- SIDEBAR -->
@@ -108,7 +104,7 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
     // === 1) Données des élèves ===
-    // Les informations des élèves avec coordonnées, image et description (texte formel)
+    // Les informations des élèves restent inchangées, seuls les chemins d'image sont mis à jour pour utiliser "Photos"
     const students = [
       {
         name: "Axel",
@@ -150,39 +146,36 @@
       {
         name: "Thomas",
         coords: [37.04390331027527, -7.971833235811672],
-        photo: "photos/Thomas.jpg",
+        photo: "Photos/Thomas.jpg",
         details: "A dépensé 7850€ pour être ici et a posé sa convention trop tard pour avoir les aides."
       },
       {
         name: "Thibault",
         coords: [12.9620, 77.5698],
-        photo: "photos/Thibaut.png",
+        photo: "Photos/Thibaut.png",
         details: "Va se faire voler ses reins de blanc pour qu'ils soient revendu au marché noir indien pour 1500000 rupies (14.33€)"
       },
       {
         name: "Gabriel",
         coords: [40.4168, -3.7038],
-        photo: "photos/Gabriel.png",
+        photo: "Photos/Gabriel.png",
         details: "Mort renversé par une Dacia Sandero 2015 le 16 mai 2025."
       }
     ];
-
+    
     // === 2) Initialisation de la carte Leaflet ===
     const map = L.map('map').setView([20, 0], 2);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors'
     }).addTo(map);
-
+    
     // Stockage des marqueurs
     const markers = [];
-
-    // === 3) Création des marqueurs + construction de la sidebar ===
     const studentListDiv = document.getElementById('student-list');
-
+    
     students.forEach((student, index) => {
-      const isSpecialAnimation = student.name === 'Gabriel'; // Exemple d'animation spécifique (adaptable)
-      const marker = L.marker(student.coords).addTo(map)
-        .bindPopup(`
+      const isSpecialAnimation = student.name === 'Gabriel';
+      const marker = L.marker(student.coords).addTo(map).bindPopup(`
           <b>${student.name}</b><br/>
           <img 
             src="${student.photo}" 
@@ -192,9 +185,8 @@
             alt="${student.name}"><br/>
           ${student.details}
         `);
-
       markers.push(marker);
-
+      
       const studentItem = document.createElement('div');
       studentItem.className = 'student-item';
       studentItem.innerHTML = `<strong>${student.name}</strong>`;
@@ -213,7 +205,7 @@
           }
         }, 800);
       });
-
+      
       studentListDiv.appendChild(studentItem);
     });
   </script>
