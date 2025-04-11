@@ -2,17 +2,18 @@
 <html>
 <head>
   <meta charset="UTF-8" />
+  <!-- Ajout du meta viewport pour un rendu adapté sur mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carte des mobilités</title>
   <!-- Feuille de style Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
-    /* Mise en page : sidebar + carte pour écran de bureau */
+    /* Mise en page pour bureau */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       font-family: sans-serif;
-      /* Taille de base pour bureau, par ex. 16px */
       font-size: 16px;
     }
     #container {
@@ -69,26 +70,25 @@
         border-right: none;
         border-bottom: 1px solid #ccc;
         padding: 20px;
-        /* Augmentation de la taille de police pour la sidebar */
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
       /* Agrandissement du titre */
       h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
-      /* Augmentation de la taille des items de la sidebar */
+      /* Agrandissement des items de la sidebar */
       .student-item {
-        font-size: 1.5rem;
-        padding: 10px;
+        font-size: 2rem;
+        padding: 12px;
       }
       /* La carte occupe le reste de l'écran */
       #map {
         width: 100%;
         height: 60vh;
       }
-      /* Optionnel : augmenter aussi la taille de base du body si nécessaire */
+      /* Optionnel : augmenter la taille de base du body */
       html, body {
-        font-size: 18px;
+        font-size: 20px;
       }
     }
   </style>
@@ -109,7 +109,7 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
     // === 1) Données des élèves ===
-    // Les informations des élèves avec coordonnées, image et description (texte formel)
+    // Informations des élèves avec coordonnées, image et description (texte formel)
     const students = [
       {
         name: "Axel",
@@ -177,7 +177,7 @@
     // Stockage des marqueurs
     const markers = [];
 
-    // === 3) Création des marqueurs + construction de la sidebar ===
+    // === 3) Création des marqueurs et construction de la sidebar ===
     const studentListDiv = document.getElementById('student-list');
 
     students.forEach((student, index) => {
