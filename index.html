@@ -2,13 +2,13 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-  <!-- Ajout du meta viewport pour un rendu adapté sur mobile -->
+  <!-- Meta viewport pour adapter la page au mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carte des mobilités</title>
   <!-- Feuille de style Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
-    /* Mise en page pour bureau */
+    /* Styles de base pour bureau */
     html, body {
       margin: 0;
       padding: 0;
@@ -56,39 +56,39 @@
       filter: grayscale(100%);
     }
     
-    /* Adaptation pour écrans mobiles */
+    /* Adaptation pour écrans mobiles - augmentation des tailles de texte */
     @media (max-width: 768px) {
-      /* Passage de la mise en page en colonne */
+      /* Passage en disposition colonne */
       #container {
         flex-direction: column;
       }
-      /* La sidebar occupe toute la largeur en haut */
+      /* Sidebar en haut sur toute la largeur avec texte agrandi */
       #sidebar {
         width: 100%;
         min-width: 100%;
         max-width: 100%;
         border-right: none;
         border-bottom: 1px solid #ccc;
-        padding: 20px;
-        font-size: 2rem;
+        padding: 25px;
+        font-size: 2.5rem !important;
       }
-      /* Agrandissement du titre */
+      /* Titre agrandi */
       h1 {
-        font-size: 2.5rem;
+        font-size: 3rem !important;
       }
-      /* Agrandissement des items de la sidebar */
+      /* Items de la sidebar très agrandis pour la lisibilité */
       .student-item {
-        font-size: 2rem;
-        padding: 12px;
+        font-size: 2.5rem !important;
+        padding: 15px;
       }
       /* La carte occupe le reste de l'écran */
       #map {
         width: 100%;
         height: 60vh;
       }
-      /* Optionnel : augmenter la taille de base du body */
+      /* Augmentation générale de la taille de la police pour tout le document */
       html, body {
-        font-size: 20px;
+        font-size: 24px !important;
       }
     }
   </style>
