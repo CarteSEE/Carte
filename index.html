@@ -202,7 +202,7 @@
     const studentListDiv = document.getElementById('student-list');
 
     students.forEach((student, index) => {
-      const isSpecialAnimation = student.name === 'Gabriel';
+      const isSpecialAnimation = student.name === 'Gabriel' || student.name === 'Loic';
       const marker = L.marker(student.coords).addTo(map)
         .bindPopup(`
           <b>${student.name}</b><br/>
